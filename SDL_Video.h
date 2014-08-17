@@ -9,11 +9,8 @@
 #include "SDL_image.h"
 #include "SDL_opengl.h"
 
-//#include <windows.h>							
 #include <gl\gl.h>								
 #include <gl\glu.h>								
-//#include <gl\glaux.h>								
-//#include <glut.h>
 
 // C++ headers
 #include <cstdlib>
@@ -44,11 +41,11 @@ public:
 
 	bool createWindowandContext() {
 		window  = SDL_CreateWindow("SDL2/OpenGL Demo", 
-			                        SDL_WINDOWPOS_UNDEFINED, 
-									SDL_WINDOWPOS_UNDEFINED, 
+			                    SDL_WINDOWPOS_UNDEFINED, 
+					    SDL_WINDOWPOS_UNDEFINED, 
 		                            640, 480, 
 		                            SDL_WINDOW_OPENGL|SDL_WINDOW_SHOWN
-	    );  
+                );  
 
 		context = SDL_GL_CreateContext(window);
 		return true;
@@ -69,7 +66,7 @@ public:
 		std::ofstream oglfile("openglversion.txt");
 
 		oglfile << "Vendor:     " << glGetString(GL_VENDOR)                   << std::endl;
-	    oglfile << "Renderer:   " << glGetString(GL_RENDERER)                 << std::endl;
+	        oglfile << "Renderer:   " << glGetString(GL_RENDERER)                 << std::endl;
 		oglfile << "Version:    " << glGetString(GL_VERSION)                  << std::endl;
 		
 		//oglfile << "Shading:   " << glGetString(GL_SHADING_LANGUAGE_VERSION) << std::endl;
