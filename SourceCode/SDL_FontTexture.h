@@ -1,0 +1,1 @@
+#ifndef SDL_FONTTEXTURE_H
