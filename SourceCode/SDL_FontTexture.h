@@ -3,6 +3,24 @@
 
 #include "SDL_Video.h"
 
+class SDLFontManager {
+private:
+    // multipull font sets?
+    // consider std::vector<SDLFontManager> but it is  
+    // probably better to index the fontset to use and 
+    // then load in those fonts, rather than them all
+    
+    // in settings;  
+    //              unsigned int fontset;
+    
+    std::vector<TTF_Font*> fonts;
+    unsigned int fontset;          // set through settings
+public:
+    void openFonts() {
+        // open fonts and store them in a vector.
+    }
+};
+
 class SDLFontTexture {
 private:
     std::string textstring;
