@@ -7,6 +7,29 @@
 #include "objectloader.h"
 #include "hgtreader.h"
 
+#include "Vec3.h" // 3D vector class
+
+// Currently replacing the old Normal3d and Point3d classes with a combined Vec3 class.
+// This should hopefully cut done on code duplication.
+// Undecided on whether to have another class which then combines these two classes 
+// or to simple create two instances in the Grid.h class.
+
+/* 
+class VertexData() {
+    Vec3 point3d;
+    Vec3 normal3d;
+    
+    or 
+    
+    std::vector<Vec3> point3d;
+    std::vector<Vec3> normal3d;
+    
+    currently favouring the first option, as it seams to give more flexability.
+    addtovector(Vec3& v) {
+        v.push_back(Vec3());
+    }
+}
+*/
 class Normal3d {
 private:
 	double x;
