@@ -1,0 +1,64 @@
+#ifndef VEC3_H
+#define VEC3_H
+
+// Vec3 is a simple vector class 
+
+class Vec3 {
+private:
+    double x, y, z;
+public:
+    Vec3(double nx, double ny, double nz) : x(nx), y(ny), z(nz) {
+        // primary constructor for Vec3 class
+    }
+  
+    ~Vec3() {};
+    
+    // get functions
+    
+    double getx() { return x; }
+    double gety() { return y; }
+    double getz() { return z; }
+    
+    // operators
+    
+    Vec3 operator+(Vec3& v) {
+        return Vec3(x+v.x, y+v.y, z+v.z);
+    }
+    Vec3 operator-(Vec3& v) {
+        return Vec3(x-v.x, y-v.y, z-v.z);
+    }
+    Vec3 operator/(Vec3& v) {
+        return Vec3(x/v.x, y/v.y, z/v.z);
+    }
+    Vec3 operator*(Vec3& v) {
+       return Vec3(x*v.x, y*v.y, z*v.z);
+    }
+    
+    // scalars
+    Vec3 operator+(double scaler) {
+        return Vec3(x+scaler, y+scaler, z+scaler);
+    }
+    Vec3 operator-(double scaler) {
+        return Vec3(x-scaler, y-scaler, z-scaler);
+    }
+    Vec3 operator/(double scaler) {
+        return Vec3(x/scaler, y/scaler, z/scaler);
+    }
+    Vec3 operator*(double scaler) {
+        return Vec3(x*scaler, y*scaler, z*scaler);
+    }
+    
+    // vector maths
+    Vec3 crossproduct(Vec3& v) {
+        return Vec3(y*v.z - z*v.y,
+                    z*v.x - x*v.z,
+                    x*v.y - y*v.x);
+    }
+    double length() {
+        return sqrt(x*x+y*y+z*z);
+    }
+    
+};
+
+
+#endif
