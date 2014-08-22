@@ -1,16 +1,16 @@
 #ifndef GRID_H
 #define GRID_H
 
-#include <iostream>
+#include <iostream> // and I put this here because.......
 #include "CTextures.h"
 #include "SpaceCamera.h"
-#include "objectloader.h"
+#include "ObjectLoader.h"
 #include "hgtreader.h"
 
 #include "Vec3.h" // 3D vector class
 
 // Currently replacing the old Normal3d and Point3d classes with a combined Vec3 class.
-// This should hopefully cut done on code duplication.
+// This should hopefully cut down on code duplication.
 // Undecided on whether to have another class which then combines these two classes 
 // or to simple create two instances in the Grid.h class.
 
@@ -30,6 +30,15 @@ class VertexData() {
     }
 }
 */
+
+// TO DO: 22/08/14
+/*
+   As the old point3d and normal3d classes are being superseded by the new Vec3 class 
+   a lot of the normal calculation code will be made superflicious. 
+   The intention is to replace this with a new implemntation which uses vector math
+   functions in the Vec3 class. This should make things a little less haphazed.
+*/
+
 class Normal3d {
 private:
 	double x;
@@ -379,7 +388,7 @@ public:
 
 			}
 			else if((left==false) && (right==false)) {
-				// the everything is a fan!!!
+				// Then everything is a fan!!!
 
 				// construct the fan
 				// start from the top, then the bottom
@@ -777,7 +786,32 @@ public:
 		// end of assignment				
 	}
 	void normals(int v1, int v2, int v3) {
-	
+		
+	        // v1 centre point
+	        // v2 lhs
+	        // v3 rhs
+	        
+	        // The maths here needs checking. Although this method is correct 
+	        // it might produce unintended results if data is passed incorretly
+	        
+	        // example where v1 10, v2 20, v3 20
+	        // u = v2-v1  
+	        // u = 10
+	        
+	        // v = v3-v1
+	        // v = 10
+	        
+	        // if v1 where 20 and v2 10
+	        // u = -10
+	        // v = -10
+	        
+	        // dispite being the same vector?
+	        
+	        // u = (v2+v1) /2 
+	        // v = (v3+v1) /2 
+	        
+	        // solves this?
+	        
 		double u_x = point3d[v2].getx()-point3d[v1].getx();
 		double u_y = point3d[v2].gety()-point3d[v1].gety();
 		double u_z = point3d[v2].getz()-point3d[v1].getz();
