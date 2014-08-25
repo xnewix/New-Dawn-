@@ -16,7 +16,7 @@ private:
     std::vector<TTF_Font*> fonts;
     unsigned int fontset;          // set through settings
 public:
-    void openFonts(std::string fontfile, unsigned int nfontset) {
+    void openFonts(std::string fontfile) {
         // open fonts and store them in a vector.
         
         // this should only be called once, but if not we
@@ -27,6 +27,8 @@ public:
         //              fontfilename,  npt
         //              "example.ttf", 12
         
+        // N.B colours and text strings are not needed as they
+        // are assigned later.
         std::string   tmpfontname;
         unsigned int  tmppt;
         
@@ -40,7 +42,14 @@ public:
     }
     void addFont(std::string fontname, unsigned int npt) {
         // add a font to TTF_Font fonts
-        fonts.push_back(fontname.c_str(), npt);
+        TTF_Font *tmpfont = TTF_OpenFont(fontname.c_str(), npt);
+        fonts.push_back(tmpfont);
+    }
+    TTF_Font *returnfont(unsigned int uid) {
+        return fonts[uid];
+    }
+    void amendFont() {
+        // amendFont
     }
 };
 
