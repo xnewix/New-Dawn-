@@ -7,6 +7,7 @@
 
 class SpaceCamera {
 private:
+        // x,y and z are essencialy vec3's. perhaps they should be changed to this.
 	double camX,camY,camZ;
 	double camPitch;
 	double camYaw;
